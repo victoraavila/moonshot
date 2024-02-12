@@ -28,7 +28,7 @@ struct ContentView: View {
                             .padding([.horizontal, .bottom])
                     } else {
                         MissionsListView(missions: missions, astronauts: astronauts)
-                            .padding([.horizontal, .bottom])
+                            .padding([.horizontal])
                     }
                 }
                 
