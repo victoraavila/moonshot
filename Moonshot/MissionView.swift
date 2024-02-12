@@ -74,38 +74,7 @@ struct MissionView: View {
                 .padding(.horizontal) // So it stays away from the edges of the screen
                 
                 // The following ScrollView is not inside the above VStack to guarantee that it slides completely from edge to edge (the above VStack has horizontal padding)
-                ScrollView(.horizontal, showsIndicators: false) { // To not show the scrolling bar below the astronauts
-                    HStack {
-                        ForEach(crew, id: \.role) { crewMember in // The role is unique for each mission
-                            NavigationLink {
-//                                Text("Astronaut details") // Initial placeholder when we didn't have an AstronautView
-                                AstronautView(astronaut: crewMember.astronaut)
-                            } label: {
-                                HStack {
-                                    Image(crewMember.astronaut.id)
-                                        .resizable()
-                                        .frame(width: 104, height: 72)
-                                        .clipShape(.capsule)
-                                        .overlay( // To draw something over it
-                                            Capsule()
-                                                .strokeBorder(.white, lineWidth: 1)
-                                        )
-                                    
-                                    VStack(alignment: .leading) {
-                                        Text(crewMember.astronaut.name)
-                                            .foregroundStyle(.white)
-                                            .font(.headline)
-                                        
-                                        Text(crewMember.role)
-//                                            .foregroundStyle(.secondary)
-                                            .foregroundStyle(.white.opacity(0.5)) // So it won't be displayed as a blue-ish link color.
-                                    }
-                                }
-                                .padding(.horizontal)
-                            }
-                        }
-                    }
-                }
+                CrewView(crew: crew)
             }
             .padding(.bottom) // So it doesn't sit right next to the very edge of the bottom of the screen
         }
