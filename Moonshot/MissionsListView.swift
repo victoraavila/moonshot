@@ -36,17 +36,13 @@ struct MissionsListView: View {
                             }
                         }
                     }
+                    .listRowSeparator(.hidden)
                     .listRowBackground(Color.darkBackground)
                 }
             }
         }
         .listStyle(.plain)
-//        .containerRelativeFrame(.vertical) { height, axis in
-//            height * 1.2
-//        }
-        .frame(height: 2000) // To make sure it will ignore the safe area
         .frame(maxWidth: .infinity)
-        .ignoresSafeArea(.container, edges: .bottom)
     }
     
     init(missions: [Mission], astronauts: [String: Astronaut]) {

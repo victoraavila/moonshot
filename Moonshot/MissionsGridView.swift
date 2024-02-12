@@ -17,39 +17,41 @@ struct MissionsGridView: View {
     ]
     
     var body: some View {
-        LazyVGrid(columns: columns) {
-            ForEach(missions) { mission in
-                NavigationLink {
-//                            Text("Detail view") // Initial placeholder when we didn't have a MissionView
-                    // We are gonna pass the exact mission with all the astronauts of the JSON every time
-                    MissionView(mission: mission, astronauts: astronauts)
-                } label: {
-                    VStack {
-                        Image(mission.image)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 100, height: 100) // Keeping the correct aspect ratio of the badges no matter what size they are
-                            .padding() // To keep the images spaced in the center of every box
-                        
+        ScrollView(.vertical) {
+            LazyVGrid(columns: columns) {
+                ForEach(missions) { mission in
+                    NavigationLink {
+                        //                            Text("Detail view") // Initial placeholder when we didn't have a MissionView
+                        // We are gonna pass the exact mission with all the astronauts of the JSON every time
+                        MissionView(mission: mission, astronauts: astronauts)
+                    } label: {
                         VStack {
-                            Text(mission.displayName)
-                                .font(.headline)
-                                .foregroundStyle(.white)
+                            Image(mission.image)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 100, height: 100) // Keeping the correct aspect ratio of the badges no matter what size they are
+                                .padding() // To keep the images spaced in the center of every box
                             
-                            Text(mission.formattedLaunchDate)
-                                .font(.caption)
-                                .foregroundStyle(.gray)
+                            VStack {
+                                Text(mission.displayName)
+                                    .font(.headline)
+                                    .foregroundStyle(.white)
+                                
+                                Text(mission.formattedLaunchDate)
+                                    .font(.caption)
+                                    .foregroundStyle(.gray)
+                            }
+                            .padding(.vertical)
+                            .frame(maxWidth: .infinity)
+                            .background(.lightBackground)
                         }
-                        .padding(.vertical)
-                        .frame(maxWidth: .infinity)
-                        .background(.lightBackground)
+                        // Drawing a box around the grid
+                        .clipShape(.rect(cornerRadius: 10))
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(.lightBackground)
+                        )
                     }
-                    // Drawing a box around the grid
-                    .clipShape(.rect(cornerRadius: 10))
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(.lightBackground)
-                    )
                 }
             }
         }

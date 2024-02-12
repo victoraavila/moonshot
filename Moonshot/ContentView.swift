@@ -21,18 +21,17 @@ struct ContentView: View {
     
     var body: some View {
         NavigationStack {
-            ScrollView {
                 Group {
                     if showingGrid {
-                        MissionsGridView(missions: missions, astronauts: astronauts)
-                            .padding([.horizontal, .bottom])
+                        ScrollView {
+                            MissionsGridView(missions: missions, astronauts: astronauts)
+                                .padding([.horizontal, .bottom])
+                        }
                     } else {
                         MissionsListView(missions: missions, astronauts: astronauts)
                             .padding([.horizontal])
                     }
                 }
-                
-            }
             .navigationTitle("Moonshot")
             .background(.darkBackground)
             // We can tell SwiftUI our View prefers to be in Dark Mode always, so the title will be white no matter what
