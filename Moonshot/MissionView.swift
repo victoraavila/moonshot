@@ -31,10 +31,7 @@ struct MissionView: View {
                 VStack(alignment: .leading) { // We want the image to be centered, and the text to be in the leading edge
                     
                     // Adding a custom Divider with vertical and horizontal padding to better separate badge, launch date, description and astronauts
-                    Rectangle()
-                        .frame(height: 2)
-                        .foregroundStyle(.lightBackground)
-                        .padding(.vertical)
+                    CustomDividerView()
                     
                     Text("Launch Date")
                         .font(.title.bold())
@@ -42,10 +39,7 @@ struct MissionView: View {
                     
                     Text(mission.formattedLaunchDate)
                     
-                    Rectangle()
-                        .frame(height: 2)
-                        .foregroundStyle(.lightBackground)
-                        .padding(.vertical)
+                    CustomDividerView()
                     
                     Text("Mission Highlights")
                         .font(.title.bold())
@@ -54,10 +48,7 @@ struct MissionView: View {
                     Text(mission.description)
                     
                     // Adding a custom Divider with vertical and horizontal padding to better separate badge, description and astronauts
-                    Rectangle()
-                        .frame(height: 2)
-                        .foregroundStyle(.lightBackground)
-                        .padding(.vertical)
+                    CustomDividerView()
                     
                     // Adding a title to the crew
                     Text("Crew")
@@ -88,7 +79,7 @@ struct MissionView: View {
     let missions: [Mission] = Bundle.main.decode("missions.json")
     let astronauts: [String: Astronaut] = Bundle.main.decode("astronauts.json")
     
-    return MissionView(mission: missions[2], astronauts: astronauts) // We need to pass in a mission and an astronaut
+    return MissionView(mission: missions[5], astronauts: astronauts) // We need to pass in a mission and an astronaut
     // This is just for the Preview. It is not changing the code.
     // We don't need to set this in our Main View, because the NavigationStack already does so. The whole stack will be set automatically from there.
         .preferredColorScheme(.dark)

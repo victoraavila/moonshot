@@ -20,6 +20,7 @@
 		960591AB2B7A9212004092B7 /* astronauts.json in Resources */ = {isa = PBXBuildFile; fileRef = 960591A92B7A9212004092B7 /* astronauts.json */; };
 		960591AC2B7A9212004092B7 /* missions.json in Resources */ = {isa = PBXBuildFile; fileRef = 960591AA2B7A9212004092B7 /* missions.json */; };
 		960591AE2B7A975E004092B7 /* CrewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960591AD2B7A975E004092B7 /* CrewView.swift */; };
+		960591B02B7AA04F004092B7 /* CustomDividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960591AF2B7AA04F004092B7 /* CustomDividerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		960591A92B7A9212004092B7 /* astronauts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = astronauts.json; sourceTree = "<group>"; };
 		960591AA2B7A9212004092B7 /* missions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = missions.json; sourceTree = "<group>"; };
 		960591AD2B7A975E004092B7 /* CrewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewView.swift; sourceTree = "<group>"; };
+		960591AF2B7AA04F004092B7 /* CustomDividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDividerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				9605918F2B7A8C61004092B7 /* MoonshotApp.swift */,
 				960591912B7A8C61004092B7 /* ContentView.swift */,
 				9605919D2B7A910F004092B7 /* MissionView.swift */,
+				960591AF2B7AA04F004092B7 /* CustomDividerView.swift */,
 				960591AD2B7A975E004092B7 /* CrewView.swift */,
 				9605919F2B7A9130004092B7 /* AstronautView.swift */,
 				960591A12B7A915D004092B7 /* Color-Theme.swift */,
@@ -167,6 +170,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				960591922B7A8C61004092B7 /* ContentView.swift in Sources */,
+				960591B02B7AA04F004092B7 /* CustomDividerView.swift in Sources */,
 				960591AE2B7A975E004092B7 /* CrewView.swift in Sources */,
 				960591902B7A8C61004092B7 /* MoonshotApp.swift in Sources */,
 				960591A02B7A9130004092B7 /* AstronautView.swift in Sources */,

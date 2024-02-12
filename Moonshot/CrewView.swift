@@ -72,7 +72,7 @@ struct CrewView: View {
     let missions: [Mission] = Bundle.main.decode("missions.json")
     let astronauts: [String: Astronaut] = Bundle.main.decode("astronauts.json")
     
-    return CrewView(mission: missions[4], astronauts: astronauts) // We need to pass in a mission and an astronaut
+    return CrewView(mission: missions[6], astronauts: astronauts) // We need to pass in a mission and an astronaut
     // This is just for the Preview. It is not changing the code.
     // We don't need to set this in our Main View, because the NavigationStack already does so. The whole stack will be set automatically from there.
         .preferredColorScheme(.dark)
