@@ -53,7 +53,6 @@
 		960591832B7A8C61004092B7 = {
 			isa = PBXGroup;
 			children = (
-				960591AD2B7A975E004092B7 /* CrewView.swift */,
 				9605918E2B7A8C61004092B7 /* Moonshot */,
 				9605918D2B7A8C61004092B7 /* Products */,
 			);
@@ -73,6 +72,7 @@
 				9605918F2B7A8C61004092B7 /* MoonshotApp.swift */,
 				960591912B7A8C61004092B7 /* ContentView.swift */,
 				9605919D2B7A910F004092B7 /* MissionView.swift */,
+				960591AD2B7A975E004092B7 /* CrewView.swift */,
 				9605919F2B7A9130004092B7 /* AstronautView.swift */,
 				960591A12B7A915D004092B7 /* Color-Theme.swift */,
 				960591A32B7A9171004092B7 /* Astronaut.swift */,
