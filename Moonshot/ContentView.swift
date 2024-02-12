@@ -29,7 +29,7 @@ struct ContentView: View {
                         }
                     } else {
                         MissionsListView(missions: missions, astronauts: astronauts)
-                            .padding([.horizontal])
+                            .padding([.trailing])
                     }
                 }
             .navigationTitle("Moonshot")

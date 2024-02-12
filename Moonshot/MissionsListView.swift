@@ -13,32 +13,33 @@ struct MissionsListView: View {
     
     var body: some View {
         List {
-            Section() {
-                ForEach(missions) { mission in
-                    NavigationLink {
-                        MissionView(mission: mission, astronauts: astronauts)
-                    } label: {
-                        HStack {
-                            Image(mission.image)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 100, height: 100) // Keeping the correct aspect ratio of the badges no matter what size they are
-                                .padding() // To keep the images spaced in the center of every box
+            ForEach(missions) { mission in
+                NavigationLink {
+                    MissionView(mission: mission, astronauts: astronauts)
+                } label: {
+                    HStack {
+                        Image(mission.image)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 100, height: 100) // Keeping the correct aspect ratio of the badges no matter what size they are
+                            .padding() // To keep the images spaced in the center of every box
+                        
+                        VStack(alignment: .leading) {
+                            Text(mission.displayName)
+                                .font(.headline)
+                                .foregroundStyle(.white)
                             
-                            VStack(alignment: .leading) {
-                                Text(mission.displayName)
-                                    .font(.headline)
-                                    .foregroundStyle(.white)
-                                
-                                Text(mission.formattedLaunchDate)
-                                    .font(.caption)
-                                    .foregroundStyle(.gray)
-                            }
+                            Text(mission.formattedLaunchDate)
+                                .font(.caption)
+                                .foregroundStyle(.gray)
                         }
                     }
-                    .listRowSeparator(.hidden)
-                    .listRowBackground(Color.darkBackground)
                 }
+                .alignmentGuide(.listRowSeparatorLeading) { d in
+                    d[.leading]
+                } // To stop beginning the row separator along the text. Take all row in consideration instead.
+                .listSectionSeparator(.hidden, edges: .top) // To remove the section separator between the Navigation Title and first row
+                .listRowBackground(Color.darkBackground)
             }
         }
         .listStyle(.plain)
