@@ -22,6 +22,7 @@
 		960591AE2B7A975E004092B7 /* CrewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960591AD2B7A975E004092B7 /* CrewView.swift */; };
 		960591B02B7AA04F004092B7 /* CustomDividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960591AF2B7AA04F004092B7 /* CustomDividerView.swift */; };
 		960591B22B7AA3C7004092B7 /* MissionsGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960591B12B7AA3C7004092B7 /* MissionsGridView.swift */; };
+		960591B42B7AAE08004092B7 /* MissionsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960591B32B7AAE08004092B7 /* MissionsListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		960591AD2B7A975E004092B7 /* CrewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewView.swift; sourceTree = "<group>"; };
 		960591AF2B7AA04F004092B7 /* CustomDividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDividerView.swift; sourceTree = "<group>"; };
 		960591B12B7AA3C7004092B7 /* MissionsGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionsGridView.swift; sourceTree = "<group>"; };
+		960591B32B7AAE08004092B7 /* MissionsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionsListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 			children = (
 				9605918F2B7A8C61004092B7 /* MoonshotApp.swift */,
 				960591912B7A8C61004092B7 /* ContentView.swift */,
+				960591B32B7AAE08004092B7 /* MissionsListView.swift */,
 				960591B12B7AA3C7004092B7 /* MissionsGridView.swift */,
 				9605919D2B7A910F004092B7 /* MissionView.swift */,
 				960591AF2B7AA04F004092B7 /* CustomDividerView.swift */,
@@ -181,6 +184,7 @@
 				960591B22B7AA3C7004092B7 /* MissionsGridView.swift in Sources */,
 				960591A42B7A9171004092B7 /* Astronaut.swift in Sources */,
 				9605919E2B7A910F004092B7 /* MissionView.swift in Sources */,
+				960591B42B7AAE08004092B7 /* MissionsListView.swift in Sources */,
 				960591A62B7A9183004092B7 /* Mission.swift in Sources */,
 				960591A22B7A915D004092B7 /* Color-Theme.swift in Sources */,
 			);

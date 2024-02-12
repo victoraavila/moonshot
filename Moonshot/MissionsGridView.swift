@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct MissionsGridView: View {
-    let astronauts: [String: Astronaut]
     let missions: [Mission]
+    let astronauts: [String: Astronaut]
     
     // We'll use a property to make an adaptive column layout so we have a certain number of rows and columns depending on our screen size.
     let columns = [
