@@ -8,23 +8,19 @@
 import SwiftUI
 
 struct CrewView: View {
-    // The content from this struct will be shown in this View
-    struct CrewMember {
+    
+    struct CrewMember: Hashable {
         let role: String
         let astronaut: Astronaut
     }
     
-    // An array of fully resolved CrewMembers, i.e., role + Astronaut already merged from both JSONs
     let crew: [CrewMember]
     
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) { // To not show the scrolling bar below the astronauts
             HStack {
                 ForEach(crew, id: \.role) { crewMember in // The role is unique for each mission
-                    NavigationLink {
-//                                Text("Astronaut details") // Initial placeholder when we didn't have an AstronautView
-                        AstronautView(astronaut: crewMember.astronaut)
-                    } label: {
+                    NavigationLink(value: crewMember) {
                         HStack {
                             Image(crewMember.astronaut.id)
                                 .resizable()
@@ -34,20 +30,21 @@ struct CrewView: View {
                                     Capsule()
                                         .strokeBorder(.white, lineWidth: 1)
                                 )
-                            
                             VStack(alignment: .leading) {
                                 Text(crewMember.astronaut.name)
                                     .foregroundStyle(.white)
                                     .font(.headline)
-                                
                                 Text(crewMember.role)
-//                                            .foregroundStyle(.secondary)
+                                //                                            .foregroundStyle(.secondary)
                                     .foregroundStyle(.white.opacity(0.5)) // So it won't be displayed as a blue-ish link color.
                             }
                         }
                         .padding(.horizontal)
                     }
                 }
+            }
+            .navigationDestination(for: CrewMember.self) { member in
+                AstronautView(astronaut: member.astronaut)
             }
         }
     }

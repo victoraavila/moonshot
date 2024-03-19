@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Astronaut: Codable, Identifiable {
+struct Astronaut: Codable, Identifiable, Hashable {
     // We can create instances of this struct straight out of the JSON (because of the Codable protocol)
     // Any kind of loop that loads dynamic data can use the id of this thing directly (because of the Identifiable protocol)
     // The following are the 3 fields of the JSON

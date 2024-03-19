@@ -11,11 +11,11 @@ import Foundation
 
 // All but one missions have a launch date. How do we store something that might be a String, but might be null? With Optionals.
 // If we mark some value as Optional, Swift will automatically skip it if the value is missing from the input JSON.
-struct Mission: Codable, Identifiable {
+struct Mission: Codable, Identifiable, Hashable {
     // This CrewRole struct will be used exclusively to store data about Missions
     // This is a nested struct.
     // Instead of calling CrewRole, call Mission.CrewRole
-    struct CrewRole: Codable {
+    struct CrewRole: Codable, Hashable {
         let name: String
         let role: String
     }
