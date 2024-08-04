@@ -85,24 +85,24 @@ struct MissionView: View {
                     self.scrollViewProxy = proxy
                 }
             }
-        .navigationTitle(mission.displayName)
-        .navigationBarTitleDisplayMode(.inline)
-        .background(.darkBackground)
-        .accessibilityScrollAction { edge in
-            withAnimation {
-                switch edge {
-                case .top:
-                    proxy.scrollTo("top", anchor: .top)
-                    UIAccessibility.post(notification: .announcement, argument: "Scrolled to top")
-                case .bottom:
-                    proxy.scrollTo("bottom", anchor: .bottom)
-                    UIAccessibility.post(notification: .announcement, argument: "Scrolled to bottom")
-                default:
-                    break
+            .navigationTitle(mission.displayName)
+            .navigationBarTitleDisplayMode(.inline)
+            .background(.darkBackground)
+            .accessibilityScrollAction { edge in
+                withAnimation {
+                    switch edge {
+                    case .top:
+                        proxy.scrollTo("top", anchor: .top)
+                        UIAccessibility.post(notification: .announcement, argument: "Scrolled to top")
+                    case .bottom:
+                        proxy.scrollTo("bottom", anchor: .bottom)
+                        UIAccessibility.post(notification: .announcement, argument: "Scrolled to bottom")
+                    default:
+                        break
+                    }
                 }
             }
         }
-    }
     }
     
     // A custom initializer that accepts the Mission it represents, along with all the Astronauts, and then figure out the crew Array.

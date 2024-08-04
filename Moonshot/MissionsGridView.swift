@@ -44,9 +44,6 @@ struct MissionsGridView: View {
                             .accessibilityElement(children: .combine)
                             .accessibilityLabel("Mission: \(mission.displayName), Launch Date: \(mission.formattedLaunchDate)")
                             .accessibilityHint("Double tap to view mission details")
-                            .accessibilityAction(named: "Next Mission") {
-                                moveToNextMission()
-                            }
                         }
                     }
                 }
@@ -55,41 +52,11 @@ struct MissionsGridView: View {
                 }
             }
         }
-        .accessibilityScrollAction { edge in
-            switch edge {
-            case .top:
-                jumpToTop()
-            case .bottom:
-                jumpToBottom()
-            default:
-                break
-            }
-        }
     }
     
     init(missions: [Mission], astronauts: [String: Astronaut]) {
         self.missions = missions
         self.astronauts = astronauts
-    }
-    
-    private func moveToNextMission() {
-        currentIndex = min(currentIndex + 1, missions.count - 1)
-        announceCurrentMission()
-    }
-    
-    private func jumpToTop() {
-        currentIndex = 0
-        announceCurrentMission()
-    }
-    
-    private func jumpToBottom() {
-        currentIndex = missions.count - 1
-        announceCurrentMission()
-    }
-    
-    private func announceCurrentMission() {
-        let mission = missions[currentIndex]
-        UIAccessibility.post(notification: .announcement, argument: "Now at mission: \(mission.displayName)")
     }
 }
 

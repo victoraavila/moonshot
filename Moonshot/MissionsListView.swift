@@ -39,6 +39,9 @@ struct MissionsListView: View {
                     } // To stop beginning the row separator along the text. Take all row in consideration instead.
                     .listSectionSeparator(.hidden, edges: .top) // To remove the section separator between the Navigation Title and first row
                     .listRowBackground(Color.darkBackground)
+                    .accessibilityElement(children: .combine)
+                    .accessibilityLabel("Mission: \(mission.displayName), Launch Date: \(mission.formattedLaunchDate)")
+                    .accessibilityHint("Double tap to view mission details")
                 }
             }
             .navigationDestination(for: Mission.self) { mission in
