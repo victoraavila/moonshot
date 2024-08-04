@@ -1,33 +1,27 @@
-//
-//  MissionsGridView.swift
-//  Moonshot
-//
-//  Created by Víctor Ávila on 12/02/24.
-//
-
 import SwiftUI
 
 struct MissionsGridView: View {
     let missions: [Mission]
     let astronauts: [String: Astronaut]
     
-    // We'll use a property to make an adaptive column layout so we have a certain number of rows and columns depending on our screen size.
     let columns = [
         GridItem(.adaptive(minimum: 150))
     ]
+    
+    @State private var currentIndex = 0
     
     var body: some View {
         ScrollView(.vertical) {
             NavigationStack {
                 LazyVGrid(columns: columns) {
-                    ForEach(missions) { mission in
+                    ForEach(Array(missions.enumerated()), id: \.element.id) { index, mission in
                         NavigationLink(value: mission) {
                             VStack {
                                 Image(mission.image)
                                     .resizable()
                                     .scaledToFit()
-                                    .frame(width: 100, height: 100) // Keeping the correct aspect ratio of the badges no matter what size they are
-                                    .padding() // To keep the images spaced in the center of every box
+                                    .frame(width: 100, height: 100)
+                                    .padding()
                                 
                                 VStack {
                                     Text(mission.displayName)
@@ -42,12 +36,17 @@ struct MissionsGridView: View {
                                 .frame(maxWidth: .infinity)
                                 .background(.lightBackground)
                             }
-                            // Drawing a box around the grid
                             .clipShape(.rect(cornerRadius: 10))
                             .overlay(
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(.lightBackground)
                             )
+                            .accessibilityElement(children: .combine)
+                            .accessibilityLabel("Mission: \(mission.displayName), Launch Date: \(mission.formattedLaunchDate)")
+                            .accessibilityHint("Double tap to view mission details")
+                            .accessibilityAction(named: "Next Mission") {
+                                moveToNextMission()
+                            }
                         }
                     }
                 }
@@ -56,11 +55,41 @@ struct MissionsGridView: View {
                 }
             }
         }
+        .accessibilityScrollAction { edge in
+            switch edge {
+            case .top:
+                jumpToTop()
+            case .bottom:
+                jumpToBottom()
+            default:
+                break
+            }
+        }
     }
     
     init(missions: [Mission], astronauts: [String: Astronaut]) {
         self.missions = missions
         self.astronauts = astronauts
+    }
+    
+    private func moveToNextMission() {
+        currentIndex = min(currentIndex + 1, missions.count - 1)
+        announceCurrentMission()
+    }
+    
+    private func jumpToTop() {
+        currentIndex = 0
+        announceCurrentMission()
+    }
+    
+    private func jumpToBottom() {
+        currentIndex = missions.count - 1
+        announceCurrentMission()
+    }
+    
+    private func announceCurrentMission() {
+        let mission = missions[currentIndex]
+        UIAccessibility.post(notification: .announcement, argument: "Now at mission: \(mission.displayName)")
     }
 }
 
@@ -68,7 +97,7 @@ struct MissionsGridView: View {
     let astronauts: [String: Astronaut] = Bundle.main.decode("astronauts.json")
     let missions: [Mission] = Bundle.main.decode("missions.json")
     
-    return NavigationStack { // This NavigationStack is only for preview purposes. It doesn't affect on anything.
+    return NavigationStack {
         MissionsGridView(missions: missions, astronauts: astronauts)
     }
 }
